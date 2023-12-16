@@ -8,10 +8,8 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('fields', function (Blueprint $table) {
+        Schema::create('answerers', function (Blueprint $table) {
             $table->uuid("id")->primary()->default(DB::raw('(gen_random_uuid())'));
-            $table->string('title');
-            $table->string('regex');
             $table->uuid("form_id");
             $table->timestamps();
         });
@@ -19,6 +17,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('fields');
+        Schema::dropIfExists('answerers');
     }
 };

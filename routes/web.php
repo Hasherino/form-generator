@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AnswerersController;
+use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/forms/{id}', [FormController::class, 'show']);
+Route::post('/forms/create', [FormController::class, 'create']);
+Route::get('/forms/{id}/answerers', [AnswerersController::class, 'index']);
+
+Route::post('/answerers/create', [AnswerersController::class, 'create']);
+

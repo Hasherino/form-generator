@@ -10,15 +10,18 @@
 </head>
 <body>
 <div class="container">
-    <div class="form-header">Create a new form</div>
-    <div class="form-title edit-icon" contenteditable="true">Untitled form</div>
-    <div class="field-containers">
-    </div>
-    <button class="add-field-button"><i class="fa fa-plus"></i></button> Add new field
-</div>
+    <form id="dynamicForm" method="POST" action="/forms/create">
+        @csrf
+        <div class="form-header">Create a new form</div>
+        <input type="text" class="form-title edit-icon" name="title" placeholder="Untitled form">
+        <div class="field-containers">
+        </div>
+        <button type="button" class="add-field-button round-button"><i class="fa fa-plus"></i></button> Add new field
+    </form>
 
-<div class="publish-button-container">
-    <button class="publish-button">Publish Form</button>
+    <div class="publish-button-container">
+        <button type="submit" form="dynamicForm" class="publish-button">Publish Form</button>
+    </div>
 </div>
 </body>
 </html>

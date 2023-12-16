@@ -9,8 +9,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('forms', function (Blueprint $table) {
-            $table->uuid("id")->primary();
+            $table->uuid("id")->primary()->default(DB::raw('(gen_random_uuid())'));
             $table->string('title');
+            $table->uuid("link")->default(DB::raw('(gen_random_uuid())'));
+            $table->timestamps();
         });
     }
 
